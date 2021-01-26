@@ -44,6 +44,8 @@ To get the refresh token, which we will use within the transporter object in Nod
 4. The next screen will let you know that Google still hasn’t verified this application, but this is ok since we haven’t submitted it for verification. Click `Continue`.
 5. In the next screen, you will be asked to grant permission to your project to interact with your gmail account. Please do so.
 6. Once that is done, you will be redirected back to the `OAuth Playground` and you can see that there is an `authorization code` in the menu to the left. Click on the blue button labelled `Exchange authorization code for tokens`. The fields for the refresh token (OAUTH_REFRESH_TOKEN) and the access token will now be filled.
+    
+- After doing all of those configurations, we can return to our application and input all that data into the transporter creation. In order to keep all your credentials `private`, you can use the `dotenv package`. Don’t forget to also add the `.env` file you will create to `.gitignore`.
 
 (II). Create a MailOptions Object :  
 - Next, we will create the mailOptions object, which holds the details of where to send the email and with what data.  
