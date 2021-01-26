@@ -5,19 +5,20 @@ Use Nodemailer to Send Emails 📬 from Your Node.js Server. 📮 Nodemailer is 
 Nodemailer’s API is pretty simple and requires us to do the following :
 1. Create a Transporter object : 
 - To create a transporter object, we do the following:  
-`let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        type: 'OAuth2',
-        user: process.env.MAIL_USERNAME,
-        pass: process.env.MAIL_PASSWORD,
-        clientId: process.env.OAUTH_CLIENTID,
-        clientSecret: process.env.OAUTH_CLIENT_SECRET,
-        refreshToken: process.env.OAUTH_REFRESH_TOKEN
-      }
-    });`
+`let transporter = nodemailer.createTransport({  
+      service: 'gmail',  
+      auth: {  
+        type: 'OAuth2',  
+        user: process.env.MAIL_USERNAME,  
+        pass: process.env.MAIL_PASSWORD,  
+        clientId: process.env.OAUTH_CLIENTID,  
+        clientSecret: process.env.OAUTH_CLIENT_SECRET,  
+        refreshToken: process.env.OAUTH_REFRESH_TOKEN  
+      }  
+    });`  
     
-✋ Pay attention, as apart from the user and the pass keys, which are your own credentials for your gmail account, the other three keys need to be retrieved after setting up `OAuth`. Gmail has a high level of security when it comes to mail sent by/to a user’s account. There are a number of ways we can overcome this obstacle (some better than others), and we will choose the one that requires us to set up a project in the `Google Cloud Platform`. We need to do that in order to have credentials for the `OAuth security` enabled by Gmail.  
+✋ Pay attention, as apart from the user and the pass keys, which are your own credentials for your gmail account, the other three keys need to be retrieved after setting up `OAuth`. Gmail has a high level of security when it comes to mail sent by/to a user’s account. There are a number of ways we can overcome this obstacle (some better than others), and we will choose the one that requires us to set up a project in the `Google Cloud Platform`. We need to do that in order to have credentials for the `OAuth security` enabled by Gmail.    
+  
 🙃 The next steps will require some configurations :
 
 ### Google Cloud Platform Configurations
@@ -37,31 +38,31 @@ In this phase will we create OAuth credentials to be used with Nodemailer.
 
 ### To Get Your OAuth Refresh Token
 To get the refresh token, which we will use within the transporter object in Nodemailer, we need to head over to the OAuth2 Playground. We approved this URI for this specific purpose in an earlier stage.  
-1. Click on the gear icon to the right (which is `OAuth2.0 Configuration`) and check the checkbox to use your own `OAuth2.0 Credentials`.  
-2. Look over to the left side of the website and you will see a list of services. Scroll down until you see `Gmail API v1`.  
-3. Click `Authorize APIs`. You will be presented with a screen to login to any of your Gmail accounts. Choose the one you listed as a Test user.  
-4. The next screen will let you know that Google still hasn’t verified this application, but this is ok since we haven’t submitted it for verification. Click `Continue`.  
-5. In the next screen, you will be asked to grant permission to your project to interact with your gmail account. Please do so.  
-6. Once that is done, you will be redirected back to the `OAuth Playground` and you can see that there is an `authorization code` in the menu to the left. Click on the blue button labelled `Exchange authorization code for tokens`. The fields for the refresh token (OAUTH_REFRESH_TOKEN) and the access token will now be filled.  
+1. Click on the gear icon to the right (which is `OAuth2.0 Configuration`) and check the checkbox to use your own `OAuth2.0 Credentials`.
+2. Look over to the left side of the website and you will see a list of services. Scroll down until you see `Gmail API v1`.
+3. Click `Authorize APIs`. You will be presented with a screen to login to any of your Gmail accounts. Choose the one you listed as a Test user.
+4. The next screen will let you know that Google still hasn’t verified this application, but this is ok since we haven’t submitted it for verification. Click `Continue`.
+5. In the next screen, you will be asked to grant permission to your project to interact with your gmail account. Please do so.
+6. Once that is done, you will be redirected back to the `OAuth Playground` and you can see that there is an `authorization code` in the menu to the left. Click on the blue button labelled `Exchange authorization code for tokens`. The fields for the refresh token (OAUTH_REFRESH_TOKEN) and the access token will now be filled.
 
 2. Create a MailOptions Object :  
 - Next, we will create the mailOptions object, which holds the details of where to send the email and with what data.  
-`let mailOptions = {
-      from: 'sender@gmail.com',
-      to: 'receiver@gmail.com',
-      subject: 'NodemailerProject',
-      text: 'Hi! This is from your NodemailerProject <3'
-    };`
+`let mailOptions = {  
+      from: 'sender@gmail.com',  
+      to: 'receiver@gmail.com',  
+      subject: 'NodemailerProject',  
+      text: 'Hi! This is from your NodemailerProject <3'  
+    };`  
     
 3. Use the Transporter.sendMail method :  
 - Finally, we will use the sendMail method:  
-`transporter.sendMail(mailOptions, function(err, data) {
-      if (err) {
-        console.log("Error :( " + err);
-      } else {
-        console.log("Email sent successfully!");
-      }
-    });`
+`transporter.sendMail(mailOptions, function(err, data) {  
+      if (err) {  
+        console.log("Error :( " + err);  
+      } else {  
+        console.log("Email sent successfully!");  
+      }  
+    });`  
 
 ## To get started with Nodemailer
 1. Clone the repository using `git clone https://github.com/DamianArado/NodemailerProject.git`.
