@@ -3,7 +3,7 @@ Use Nodemailer to Send Emails 📬 from Your Node.js Server. 📮 Nodemailer is 
 
 ## About Nodemailer
 Nodemailer’s API is pretty simple and requires us to do the following :
-1. Create a Transporter object : 
+(I). Create a Transporter object : 
 - To create a transporter object, we do the following:  
 `let transporter = nodemailer.createTransport({  
       service: 'gmail',  
@@ -36,7 +36,7 @@ In this phase will we create OAuth credentials to be used with Nodemailer.
 (c). In the `Authorized Redirect URIs` section, make sure to add `OAuth2.0 Playground` (https://developers.google.com/oauthplayground) as we will use it to get one of the keys that was mentioned in the beginning.  
 (d). After clicking create, you will be presented with your `client id`(OAUTH_CLIENTID) and `client secret`(OAUTH_CLIENT_SECRET). Keep these to yourself and never expose them in any way, shape, or form.  
 
-### To Get Your OAuth Refresh Token
+### To Get Your OAuth Refresh Token  
 To get the refresh token, which we will use within the transporter object in Nodemailer, we need to head over to the OAuth2 Playground. We approved this URI for this specific purpose in an earlier stage.
 1. Click on the gear icon to the right (which is `OAuth2.0 Configuration`) and check the checkbox to use your own `OAuth2.0 Credentials`.
 2. Look over to the left side of the website and you will see a list of services. Scroll down until you see `Gmail API v1`.
@@ -45,7 +45,7 @@ To get the refresh token, which we will use within the transporter object in Nod
 5. In the next screen, you will be asked to grant permission to your project to interact with your gmail account. Please do so.
 6. Once that is done, you will be redirected back to the `OAuth Playground` and you can see that there is an `authorization code` in the menu to the left. Click on the blue button labelled `Exchange authorization code for tokens`. The fields for the refresh token (OAUTH_REFRESH_TOKEN) and the access token will now be filled.
 
-2. Create a MailOptions Object :  
+(II). Create a MailOptions Object :  
 - Next, we will create the mailOptions object, which holds the details of where to send the email and with what data.  
 `let mailOptions = {  
       from: 'sender@gmail.com',  
@@ -54,7 +54,7 @@ To get the refresh token, which we will use within the transporter object in Nod
       text: 'Hi! This is from your NodemailerProject <3'  
     };`  
     
-3. Use the Transporter.sendMail method :  
+(III). Use the Transporter.sendMail method :  
 - Finally, we will use the sendMail method:  
 `transporter.sendMail(mailOptions, function(err, data) {  
       if (err) {  
