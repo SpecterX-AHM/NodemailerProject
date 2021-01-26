@@ -37,7 +37,7 @@ In this phase will we create OAuth credentials to be used with Nodemailer.
 (d). After clicking create, you will be presented with your `client id`(OAUTH_CLIENTID) and `client secret`(OAUTH_CLIENT_SECRET). Keep these to yourself and never expose them in any way, shape, or form.  
 
 ### To Get Your OAuth Refresh Token
-To get the refresh token, which we will use within the transporter object in Nodemailer, we need to head over to the OAuth2 Playground. We approved this URI for this specific purpose in an earlier stage.  
+To get the refresh token, which we will use within the transporter object in Nodemailer, we need to head over to the OAuth2 Playground. We approved this URI for this specific purpose in an earlier stage.
 1. Click on the gear icon to the right (which is `OAuth2.0 Configuration`) and check the checkbox to use your own `OAuth2.0 Credentials`.
 2. Look over to the left side of the website and you will see a list of services. Scroll down until you see `Gmail API v1`.
 3. Click `Authorize APIs`. You will be presented with a screen to login to any of your Gmail accounts. Choose the one you listed as a Test user.
