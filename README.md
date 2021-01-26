@@ -47,11 +47,11 @@ To get the refresh token, which we will use within the transporter object in Nod
 
 (II). Create a MailOptions Object :  
 - Next, we will create the mailOptions object, which holds the details of where to send the email and with what data.  
-`let mailOptions = {  
-      from: 'sender@gmail.com',  
-      to: 'receiver@gmail.com',  
-      subject: 'NodemailerProject',  
-      text: 'Hi! This is from your NodemailerProject <3'  
+`let mailOptions = {    
+      from: 'sender@gmail.com',    
+      to: 'receiver@gmail.com',    
+      subject: 'NodemailerProject',    
+      text: 'Hi! This is from your NodemailerProject <3'    
     };`  
     
 (III). Use the Transporter.sendMail method :  
